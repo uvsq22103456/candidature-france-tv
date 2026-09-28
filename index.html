@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samia Said Hassani | Candidature France.tv Data</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #0f172a; /* Bleu très sombre tech */
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+            --primary-blue: #2563eb; /* Bleu digital France TV */
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-light); color: var(--text-main); line-height: 1.7; overflow-x: hidden; }
+
+        /* NAVIGATION MINIMALISTE */
+        nav {
+            position: fixed; top: 0; width: 100%; background: rgba(255, 255, 255, 0.90); backdrop-filter: blur(12px);
+            display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; z-index: 1000; border-bottom: 1px solid var(--border-color);
+        }
+        .nav-logo { font-size: 1rem; font-weight: 700; text-decoration: none; color: var(--text-main); letter-spacing: 1px; text-transform: uppercase;}
+        .nav-logo span { color: var(--primary-blue); }
+        .nav-links a { margin-left: 30px; text-decoration: none; color: var(--text-muted); font-size: 0.85rem; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--primary-blue); }
+
+        /* HERO SECTION TECH */
+        .hero {
+            height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+            background-color: var(--bg-dark);
+            background-image: radial-gradient(circle at 50% 0%, #1e3a8a 0%, #0f172a 70%);
+            color: var(--white); padding: 0 20px;
+        }
+        .hero-subtitle { font-size: 0.9rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 20px; color: #93c5fd; font-weight: 500; animation: fadeInDown 1s ease; }
+        .hero-title { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 700; line-height: 1.1; letter-spacing: -1px; margin-bottom: 30px; animation: fadeInUp 1s ease; }
+        .hero-btn { 
+            padding: 16px 35px; background: var(--primary-blue); color: var(--white); text-decoration: none; border-radius: 8px;
+            font-weight: 600; font-size: 0.9rem; transition: 0.3s; animation: fadeIn 2s ease; border: 1px solid transparent;
+        }
+        .hero-btn:hover { background: transparent; border-color: var(--primary-blue); color: #93c5fd; }
+
+        section { padding: 120px 10%; }
+        
+        /* CITATION / VISION */
+        .vision-quote { text-align: center; padding: 0 10% 80px 10%; margin-top: -40px; }
+        .vision-quote p { font-size: 1.6rem; color: var(--text-main); font-weight: 300; line-height: 1.5; letter-spacing: -0.5px; }
+        .vision-quote span { display: block; margin-top: 20px; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; color: var(--primary-blue); letter-spacing: 1px; }
+
+        /* SYNERGIE INTERACTIVE - STYLE DASHBOARD */
+        .synergy-container { display: flex; gap: 30px; flex-wrap: wrap; }
+        .syn-card {
+            flex: 1; min-width: 300px; background: var(--white); padding: 40px; border-radius: 12px;
+            border: 1px solid var(--border-color); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .syn-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); border-color: var(--primary-blue); }
+        .syn-card h3 { font-size: 1.4rem; font-weight: 600; margin-bottom: 20px; color: var(--text-main); }
+        .syn-card p { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 25px; line-height: 1.6; }
+        .syn-card ul { list-style: none; }
+        .syn-card li { margin-bottom: 16px; font-size: 0.9rem; line-height: 1.6; color: var(--text-main); padding-left: 24px; position: relative; }
+        .syn-card li::before { content: '→'; position: absolute; left: 0; color: var(--primary-blue); font-weight: bold; }
+
+        /* MISSIONS - UI LAYOUT */
+        .editorial-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .ed-text h2 { font-size: 2.2rem; font-weight: 700; margin-bottom: 20px; letter-spacing: -1px; }
+        .ed-text p.intro { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 40px; line-height: 1.7; }
+        
+        .experience-block { margin-bottom: 35px; padding-left: 20px; border-left: 3px solid var(--border-color); transition: border-color 0.3s; }
+        .experience-block:hover { border-left-color: var(--primary-blue); }
+        .experience-block h4 { font-size: 0.8rem; text-transform: uppercase; color: var(--primary-blue); font-weight: 700; letter-spacing: 1px; margin-bottom: 5px; }
+        .experience-block h3 { font-size: 1.2rem; font-weight: 600; color: var(--text-main); margin-bottom: 10px; }
+        .experience-block p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; }
+
+        /* IMAGE UI DASHBOARD */
+        .image-dashboard {
+            background-color: var(--bg-dark);
+            background-image: url('https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+            background-size: cover; background-position: center; border-radius: 16px;
+            height: 700px; width: 100%; 
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* RECOMMANDATIONS */
+        .values-section { background: var(--white); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
+        .values-section h2 { font-size: 2.2rem; font-weight: 700; text-align: center; margin-bottom: 50px; }
+        .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .value-card { padding: 30px; background: var(--bg-light); border-radius: 12px; border: 1px solid var(--border-color); }
+        .value-card p { font-size: 1rem; color: var(--text-main); font-style: italic; line-height: 1.6; margin-bottom: 20px; }
+        .value-card h4 { font-size: 0.85rem; font-weight: 600; color: var(--text-muted); }
+
+        /* CONTACT & DOWNLOAD */
+        .contact-section { text-align: center; background: var(--bg-light); }
+        .contact-info { display: flex; justify-content: center; gap: 20px; margin-bottom: 50px; flex-wrap: wrap; }
+        .contact-info a { 
+            font-size: 0.95rem; font-weight: 500; color: var(--text-main); text-decoration: none; 
+            padding: 12px 25px; background: var(--white); border: 1px solid var(--border-color); border-radius: 8px; transition: 0.3s;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .contact-info a:hover { border-color: var(--primary-blue); color: var(--primary-blue); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); }
+
+        .download-box { padding: 50px; background: var(--white); border-radius: 16px; border: 1px solid var(--border-color); max-width: 800px; margin: 0 auto; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05); }
+        .btn-download {
+            display: inline-block; padding: 14px 28px; background: var(--primary-blue); color: var(--white); 
+            font-weight: 600; text-decoration: none; border-radius: 8px; transition: 0.3s; font-size: 0.9rem; border: 1px solid transparent;
+        }
+        .btn-download:hover { background: transparent; color: var(--primary-blue); border-color: var(--primary-blue); }
+
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        @media (max-width: 900px) {
+            .editorial-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            section { padding: 80px 5%; }
+            .image-dashboard { height: 400px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="nav-logo">Samia Said Hassani <span>x France.tv</span></a>
+        <div class="nav-links">
+            <a href="#vision">Vision Data</a>
+            <a href="#parcours">Parcours</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <p class="hero-subtitle">M2 Data Science Paris-Saclay — Web Analytics & Performance</p>
+        <h1 class="hero-title">Data Analyst Produit</h1>
+        <a href="#vision" class="hero-btn">Découvrir mon profil</a>
+    </header>
+
+    <section id="vision" class="reveal">
+        <div class="vision-quote">
+            <p>"La donnée ne prend son sens que lorsqu'elle devient un levier d'action. Mon objectif : créer des outils de pilotage clairs pour éclairer les décisions des équipes éditoriales et produit."</p>
+            <span>L'alliance de la rigueur analytique et de l'expérience utilisateur</span>
+        </div>
+        
+        <div class="synergy-container">
+            <div class="syn-card">
+                <h3>Ce que je vous apporte</h3>
+                <p>Une double compétence en analyse de données et développement d'interfaces métiers (Python, Power BI, SQL), orientée vers la performance :</p>
+                <ul>
+                    <li><strong>Dashboards & Pilotage (Power BI) :</strong> Recueil des besoins, conception et industrialisation de tableaux de bord interactifs pour piloter les performances métiers.</li>
+                    <li><strong>Développement & Automatisation (Python) :</strong> Conception d'outils End-to-End (Python, Streamlit, PostgreSQL) pour automatiser des flux critiques avec une forte culture du ROI.</li>
+                    <li><strong>Data Quality & Environnement Cloud :</strong> Maîtrise des environnements GCP et suivi rigoureux de la fiabilité de la donnée (monitoring, détection d'anomalies).</li>
+                    <li><strong>Pédagogie & Vulgarisation :</strong> Expérience éprouvée pour rendre des notions statistiques et techniques accessibles aux équipes non expertes.</li>
+                </ul>
+            </div>
+
+            <div class="syn-card">
+                <h3>Ce que je souhaite approfondir</h3>
+                <p>Je conçois ce poste comme une opportunité de mettre mes compétences Data au service des audiences de France.tv :</p>
+                <ul>
+                    <li><strong>Webanalytics Vidéo :</strong> M'approprier vos outils spécifiques (Piano Analytics, eStat) pour suivre la performance de l'offre de streaming et le tracking des contenus.</li>
+                    <li><strong>UX Analytics & Parcours :</strong> Utiliser ContentSquare pour analyser finement le comportement des audiences sur vos différentes plateformes (Web, Mobile, TV).</li>
+                    <li><strong>BigQuery & A/B Testing :</strong> Exploiter l'environnement Data de FTV pour mesurer l'impact des évolutions produit et mener des bilans ad hoc.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="parcours">
+        <div class="editorial-grid reveal">
+            <div class="image-dashboard"></div>
+
+            <div class="ed-text">
+                <h2>L'Expertise par l'Action</h2>
+                <p class="intro">Autonome et orientée produit, je conçois des solutions où la technique répond directement aux véritables enjeux d'utilisation et de performance.</p>
+                
+                <div class="experience-block">
+                    <h4>Sept. 2025 – Sept. 2026</h4>
+                    <h3>Data Analyst / Scientist — Galeries Lafayette</h3>
+                    <p>Développement de dashboards Power BI pour le pilotage métier. Conception d'outils de monitoring pour contrôler la Data Quality et création de modèles prédictifs, le tout dans un écosystème GCP et SQL.</p>
+                </div>
+
+                <div class="experience-block">
+                    <h4>Fév. 2025 – Juil. 2025</h4>
+                    <h3>Data Scientist — Orange</h3>
+                    <p>Automatisation End-to-End d'un processus métier via une web app complète (Python, Streamlit, PostgreSQL). Création d'une interface utilisateur intuitive générant un impact chiffré direct de 140 k€/mois d'économies.</p>
+                </div>
+
+                <div class="experience-block">
+                    <h4>Sept. 2024 – Sept. 2026</h4>
+                    <h3>Master ISADS — Univ. Paris-Saclay</h3>
+                    <p>M2 Ingénierie Statistique, Actuariat et Data Science. Solide formation en traitement de données, statistiques inférentielles, Machine Learning et requêtage de bases de données.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="values-section reveal">
+        <div style="padding: 0 10%;">
+            <h2>Ce qu'ils disent de mon travail</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <p>« Elle a mené le projet avec rigueur, professionnalisme et un grand sens de l'initiative. Elle laisse derrière elle un outil fonctionnel, utile et bien documenté. »</p>
+                    <h4>— O. Becker, Responsable Rémunération, Orange</h4>
+                </div>
+                <div class="value-card">
+                    <p>« Qualité irréprochable de son travail, rigueur d'organisation [...] Elle s'est distinguée par sa polyvalence et une remarquable montée en compétences. »</p>
+                    <h4>— B. Majcherczak, Responsable DATA OPS, Galeries Lafayette</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section reveal">
+        <h2 style="font-size: 2rem; margin-bottom: 20px;">Échangeons sur vos projets</h2>
+        <p style="color: var(--text-muted); margin-bottom: 40px;">Dans l'attente d'échanger avec la Direction Data de France Télévisions.</p>
+
+        <div class="contact-info">
+            <a href="tel:0664206321">📱 06 64 20 63 21</a>
+            <a href="mailto:samia.saidhassani@gmail.com">✉️ samia.saidhassani@gmail.com</a>
+            <a href="https://linkedin.com/in/samia-said-hassani-71057420b" target="_blank">💼 LinkedIn</a>
+        </div>
+
+        <div class="download-box">
+            <h3 style="font-size: 1.5rem; margin-bottom: 15px;">Dossier de Candidature</h3>
+            <p style="color: var(--text-muted); margin-bottom: 30px;">Consultez mon CV complet et mes recommandations professionnelles.</p>
+            
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="CV_Samia_Data.pdf" target="_blank" class="btn-download">Mon CV complet</a>
+                <a href="Lettre Reco SSH.pdf" target="_blank" class="btn-download" style="background: var(--bg-light); color: var(--text-main); border-color: var(--border-color);">Recommandation Galeries Lafayette</a>
+                <a href="Lettre de recommandation Samia.pdf" target="_blank" class="btn-download" style="background: var(--bg-light); color: var(--text-main); border-color: var(--border-color);">Recommandation Orange</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal();
+    </script>
+</body>
+</html>
